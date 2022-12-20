@@ -87,6 +87,7 @@ class GameScene: SKScene{
     var hsScoreArray = Array(repeating: Int(0), count:10)
     var hsIndex = 0
     var highScore = 0
+    //var score = 0
     var gameActive = false{
         didSet{
             for gesture in (gameVC?.view.gestureRecognizers)!{
@@ -328,7 +329,23 @@ extension GameScene{
         if(cube.userData!["hp"] as? Int ?? 0) <= 0{
             cube.removeFromParent()
             cubesDestroyed += 1
-            run(SKAction.playSoundFileNamed("destroySound", waitForCompletion: false))
+            let sound = SKAudioNode(fileNamed: "destroySound.mp3")
+            sound.autoplayLooped = false
+            addChild(sound)
+            sound.run(SKAction.sequence([SKAction.play(), SKAction.changeVolume(to: 0.75, duration: 2.0), SKAction.removeFromParent()]))
+            
+            var textrueArray:[SKTexture] = []
+            for i in 1...19{
+                textrueArray.append(SKTexture(imageNamed: "exp" + String(i) + ".png"))
+            }
+            let expNode = SKSpriteNode(imageNamed: "exp1.png")
+            expNode.position = cube.position
+            let size = cube.userData!["size"] as? Int ?? 0
+            expNode.size = CGSize(width: size, height:size)
+            print(cube.lineLength)
+            expNode.zPosition = 1
+            addChild(expNode)
+            expNode.run(SKAction.sequence([SKAction.animate(with: textrueArray, timePerFrame: 0.05), SKAction.removeFromParent()]))
         }
         lazer.removeFromParent()
     }
@@ -336,6 +353,18 @@ extension GameScene{
     
     
     func baseCubeCollision(base: SKShapeNode, cube: SKShapeNode){
+        var textrueArray:[SKTexture] = []
+        for i in 1...19{
+            textrueArray.append(SKTexture(imageNamed: "exp" + String(i) + ".png"))
+        }
+        let expNode = SKSpriteNode(imageNamed: "exp1.png")
+        expNode.position = cube.position
+        let size = cube.userData!["size"] as? Int ?? 0
+        expNode.size = CGSize(width: size, height:size)
+        print(cube.lineLength)
+        expNode.zPosition = 1
+        addChild(expNode)
+        expNode.run(SKAction.sequence([SKAction.animate(with: textrueArray, timePerFrame: 0.05), SKAction.removeFromParent()]))
         cube.removeFromParent()
         run(SKAction.playSoundFileNamed("destroySound.mp3", waitForCompletion: false))
         health -= 1
@@ -436,6 +465,7 @@ extension GameScene{
         }else{
             scale = 25
         }
+        cubeDict.setValue(scale, forKey: "size")
         let cube = SKShapeNode(rectOf: CGSize(width: scale, height: scale))
         cube.fillColor = cubeColor
         cube.zPosition = 1
@@ -482,22 +512,15 @@ extension GameScene{
 
         let lazerMove = SKAction.moveBy(x:0, y:size.height ,duration: 2.5)
         let lazerMoveDone = SKAction.removeFromParent()
-        //run(SKAction.playSoundFileNamed("lazerSound.mp3", waitForCompletion: false))
-        //var sound = SKAction.playSoundFileNamed("lazerSound.mp3", waitForCompletion: false)
+
         let sound = SKAudioNode(fileNamed: "lazerSound.mp3")
         sound.autoplayLooped = false
         addChild(sound)
-        //sound.run(SKAction.play())
         sound.run(SKAction.sequence([SKAction.changeVolume(to: 0.5, duration: 0.0), SKAction.play(), SKAction.wait(forDuration: 2.0), lazerMoveDone]))
-        
-        //playSound(soundVar: soundFile)
         
         lazer.run(SKAction.sequence([lazerMove, lazerMoveDone]))
     }
     
-//    //func playSound(soundVar : SKAction){
-//        run(soundVar)
-//    }
     
     
 }
