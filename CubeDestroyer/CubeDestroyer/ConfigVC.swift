@@ -14,11 +14,16 @@ class ConfigVC: UIViewController {
     
     
     override func viewDidLoad() {
-        if (gameVC?.scene.children.count)! > 2{
+        if (gameVC?.scene.childNode(withName: "lazer")) != nil{
             disableOptions()
         }else{
             enableOptions()
         }
+//        if (gameVC?.scene.children.count)! > 4{
+//            disableOptions()
+//        }else{
+//            enableOptions()
+//        }
         //print(gameVC?.scene.children.count)
         super.viewDidLoad()
         healthStepperOutlet.value = Double(defaults.integer(forKey: "health"))
@@ -30,6 +35,9 @@ class ConfigVC: UIViewController {
         healthStepperLabel.text = String((gameVC?.scene.health)!) + "HP"
         fireRateLabel.text = String((gameVC?.scene.fireRate)!) + "/sec"
         spawnRateLabel.text = String((gameVC?.scene.spawnRate)!) + "/sec"
+        cubeSpeedLabel.text = "Cube Speed: " + String((gameVC?.scene.cubeSpeed)!)
+        cubeSpeedVarianceLabel.text = String((gameVC?.scene.cubeSpeedVariance)!)
+        
         
         
         //fireRateSliderOutlet.value = defaults.
@@ -50,6 +58,8 @@ class ConfigVC: UIViewController {
         randCubeColorOutlet.isEnabled = true
         cubeHealthOutlet.isEnabled = true
         disabledOptionsNotificationLabel.isHidden = true
+        cubeSpeedOutlet.isEnabled = true
+        cubeSpeedVarianceOutlet.isEnabled = true
     }
     
     func disableOptions(){
@@ -60,6 +70,8 @@ class ConfigVC: UIViewController {
         randCubeSizeOutlet.isEnabled = false
         randCubeColorOutlet.isEnabled = false
         cubeHealthOutlet.isEnabled = false
+        cubeSpeedOutlet.isEnabled = false
+        cubeSpeedVarianceOutlet.isEnabled = false
     }
     
     
@@ -116,29 +128,48 @@ class ConfigVC: UIViewController {
     }
     
     @IBOutlet weak var cubeHealthOutlet: UISegmentedControl!
-    
-    
-    @IBAction func swipeRightAction(_ sender: UISwipeGestureRecognizer){
-        if sender.state == .ended{
-            if let navController = self.navigationController{
-                navController.popViewController(animated: true)
-            }
-        }
-    }
 
-    
     @IBOutlet weak var disabledOptionsNotificationLabel: UILabel!
     
-
+    @IBOutlet weak var cubeSpeedLabel: UILabel!
     
-    /*
+    @IBAction func cubeSpeedAction(_ sender: Any) {
+        cubeSpeedLabel.text = "Cube Speed: " + String(cubeSpeedOutlet.value)
+        //cubeSpeedVarianceOutlet.maximumValue = cubeSpeedOutlet.value - 0.1
+//        if cubeSpeedVarianceOutlet.value > cubeSpeedVarianceOutlet.maximumValue{
+//            cubeSpeedVarianceOutlet.value = cubeSpeedVarianceOutlet.maximumValue
+//            gameVC?.scene.cubeSpeedVariance = cubeSpeedVarianceOutlet.value
+//            defaults.set(cubeSpeedVarianceOutlet.value, forKey: "cubeSpeedVariance")
+//            cubeSpeedVarianceLabel.text = String(cubeSpeedOutlet.value - 0.1)
+//        }
+        gameVC?.scene.cubeSpeed = cubeSpeedOutlet.value
+        defaults.set(cubeSpeedOutlet.value, forKey: "cubeSpeed")
+        
+    }
+    @IBOutlet weak var cubeSpeedOutlet: UISlider!
+    
+    @IBOutlet weak var cubeSpeedVarianceLabel: UILabel!
+    
+    @IBAction func cubeSpeedVarianceAction(_ sender: Any) {
+        cubeSpeedVarianceLabel.text = String(cubeSpeedVarianceOutlet.value)
+        gameVC?.scene.cubeSpeedVariance = cubeSpeedVarianceOutlet.value
+        defaults.set(cubeSpeedVarianceOutlet.value, forKey: "cubeSpeedVariance")
+    }
+    @IBOutlet weak var cubeSpeedVarianceOutlet: UISlider!
+    
     // MARK: - Navigation
-
+     @IBAction func swipeRightAction(_ sender: UISwipeGestureRecognizer){
+         if sender.state == .ended{
+             if let navController = self.navigationController{
+                 navController.popViewController(animated: true)
+             }
+         }
+     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

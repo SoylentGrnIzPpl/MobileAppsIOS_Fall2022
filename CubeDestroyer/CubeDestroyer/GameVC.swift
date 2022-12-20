@@ -29,26 +29,32 @@ class GameVC: UIViewController {
         
         hideNewHSEntry()
         previousScoreLabelOutlet.isHidden = true
+        previousScoreLabelOutlet.textColor = .white
         
         scoreLabelOutlet.text = "Score\n" + String(scene.cubesDestroyed)
+        scoreLabelOutlet.textColor = .white
         healthLabelOutlet.text = "Health\n" + String(scene.health)
+        healthLabelOutlet.textColor = .white
         
         
         
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Send Game Scene object to ConfigVC
         let configVC = segue.destination as? ConfigVC
         configVC?.gameVC = self
     }
 
-    
+    // Hide status bar
     override var prefersStatusBarHidden: Bool{
         return true
     }
     
+    
+    
+    // Displays and enabled high score entry
     func showNewHSEntry(){
         
         hsNameOutlet.isHidden = false
@@ -60,6 +66,7 @@ class GameVC: UIViewController {
         hsSubmitOutlet.isEnabled = true
     }
     
+    // Hides and disables high score entry
     func hideNewHSEntry(){
         
         hsNameOutlet.isHidden = true

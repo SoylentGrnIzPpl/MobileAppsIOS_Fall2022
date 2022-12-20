@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D444CE2129517B7700ED482F /* funSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1A29517B7600ED482F /* funSong.mp3 */; };
+		D444CE2229517B7700ED482F /* playorpause.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1B29517B7600ED482F /* playorpause.mp3 */; };
+		D444CE2329517B7700ED482F /* galagaMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1C29517B7700ED482F /* galagaMusic.mp3 */; };
+		D444CE2429517B7700ED482F /* loseSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1D29517B7700ED482F /* loseSound.mp3 */; };
+		D444CE2529517B7700ED482F /* slightlyLessFunSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1E29517B7700ED482F /* slightlyLessFunSong.mp3 */; };
+		D444CE2629517B7700ED482F /* lazerSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE1F29517B7700ED482F /* lazerSound.mp3 */; };
+		D444CE2729517B7700ED482F /* newGameSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE2029517B7700ED482F /* newGameSound.mp3 */; };
+		D444CE2929517DBC00ED482F /* destroySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D444CE2829517DBC00ED482F /* destroySound.mp3 */; };
 		D4B1499A294C2C090065AC6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B14999294C2C090065AC6A /* AppDelegate.swift */; };
 		D4B1499C294C2C090065AC6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B1499B294C2C090065AC6A /* SceneDelegate.swift */; };
 		D4B1499E294C2C090065AC6A /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B1499D294C2C090065AC6A /* GameVC.swift */; };
@@ -39,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D444CE1A29517B7600ED482F /* funSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funSong.mp3; path = "../../../../../Downloads/Assets 2/funSong.mp3"; sourceTree = "<group>"; };
+		D444CE1B29517B7600ED482F /* playorpause.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = playorpause.mp3; path = "../../../../../Downloads/Assets 2/playorpause.mp3"; sourceTree = "<group>"; };
+		D444CE1C29517B7700ED482F /* galagaMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = galagaMusic.mp3; path = "../../../../../Downloads/Assets 2/galagaMusic.mp3"; sourceTree = "<group>"; };
+		D444CE1D29517B7700ED482F /* loseSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loseSound.mp3; path = "../../../../../Downloads/Assets 2/loseSound.mp3"; sourceTree = "<group>"; };
+		D444CE1E29517B7700ED482F /* slightlyLessFunSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = slightlyLessFunSong.mp3; path = "../../../../../Downloads/Assets 2/slightlyLessFunSong.mp3"; sourceTree = "<group>"; };
+		D444CE1F29517B7700ED482F /* lazerSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lazerSound.mp3; path = "../../../../../Downloads/Assets 2/lazerSound.mp3"; sourceTree = "<group>"; };
+		D444CE2029517B7700ED482F /* newGameSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = newGameSound.mp3; path = "../../../../../Downloads/Assets 2/newGameSound.mp3"; sourceTree = "<group>"; };
+		D444CE2829517DBC00ED482F /* destroySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = destroySound.mp3; path = ../../../../../Downloads/destroySound.mp3; sourceTree = "<group>"; };
 		D4B14996294C2C090065AC6A /* CubeDestroyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeDestroyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B14999294C2C090065AC6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4B1499B294C2C090065AC6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +98,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D444CE1129516F6100ED482F /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				D444CE2829517DBC00ED482F /* destroySound.mp3 */,
+				D444CE1A29517B7600ED482F /* funSong.mp3 */,
+				D444CE1C29517B7700ED482F /* galagaMusic.mp3 */,
+				D444CE1F29517B7700ED482F /* lazerSound.mp3 */,
+				D444CE1D29517B7700ED482F /* loseSound.mp3 */,
+				D444CE2029517B7700ED482F /* newGameSound.mp3 */,
+				D444CE1B29517B7600ED482F /* playorpause.mp3 */,
+				D444CE1E29517B7700ED482F /* slightlyLessFunSong.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
 		D4B1498D294C2C090065AC6A = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +136,7 @@
 		D4B14998294C2C090065AC6A /* CubeDestroyer */ = {
 			isa = PBXGroup;
 			children = (
+				D444CE1129516F6100ED482F /* audio */,
 				D4B14999294C2C090065AC6A /* AppDelegate.swift */,
 				D4B1499B294C2C090065AC6A /* SceneDelegate.swift */,
 				D4B1499D294C2C090065AC6A /* GameVC.swift */,
@@ -240,9 +272,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D444CE2929517DBC00ED482F /* destroySound.mp3 in Resources */,
 				D4B149A6294C2C0C0065AC6A /* LaunchScreen.storyboard in Resources */,
+				D444CE2729517B7700ED482F /* newGameSound.mp3 in Resources */,
+				D444CE2229517B7700ED482F /* playorpause.mp3 in Resources */,
+				D444CE2129517B7700ED482F /* funSong.mp3 in Resources */,
+				D444CE2429517B7700ED482F /* loseSound.mp3 in Resources */,
+				D444CE2529517B7700ED482F /* slightlyLessFunSong.mp3 in Resources */,
 				D4B149A3294C2C0C0065AC6A /* Assets.xcassets in Resources */,
 				D4B149A1294C2C090065AC6A /* Main.storyboard in Resources */,
+				D444CE2629517B7700ED482F /* lazerSound.mp3 in Resources */,
+				D444CE2329517B7700ED482F /* galagaMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
